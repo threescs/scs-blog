@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=development node ./server/index.js",
+    "dev-build": "cross-env NODE_ENV=development webpack --config webpack.dev.js",
     "lint": "eslint --ext .js --ext .jsx app",
     "fix": "npm run fix:js",
     "fix:js": "eslint --ext .js,.js app --fix"
@@ -20,9 +21,12 @@
     "url": "https://github.com/threescs/scs-blog/issues"
   },
   "homepage": "https://github.com/threescs/scs-blog#readme",
-  "pre-commit": [
-    "lint"
-  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run fix"
+    }
+  },
   "dependencies": {
     "antd": "^2.13.1",
     "axios": "^0.16.2",
