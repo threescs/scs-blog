@@ -10,6 +10,22 @@ const ROOT_PATH = pathLib.resolve(__dirname);
 const ENTRY_PATH = pathLib.resolve(ROOT_PATH, 'app');
 const OUTPUT_PATH = pathLib.resolve(ROOT_PATH, 'build');
 console.log(ROOT_PATH, ENTRY_PATH, OUTPUT_PATH);
+
+// 启动项目eslint检查
+function resolve (dir) {
+  return pathLib.join(__dirname, '../', dir)
+}
+
+const createLintingRule = () => ({
+  test: /\.(js|jsx)$/,
+  loader: 'eslint-loader',
+  enforce: 'pre',
+  include: [resolve('app')],
+  options: {
+    formatter: require('eslint-friendly-formatter'),
+  }
+})
+
 module.exports = {
     entry: {
         index: [
@@ -29,6 +45,7 @@ module.exports = {
     mode: 'development',
     module: {
         rules: [
+          ...[createLintingRule()],
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
