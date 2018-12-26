@@ -18,15 +18,13 @@ export default class Banner extends Component {
         this.renderCarousel = this.renderCarousel.bind(this);
     }
 
+    renderCarousel = imgs => imgs.map((item, index) => (
+        <div key={index} className={style.carouselImgContainer}>
+            <img src={item} />
+        </div>
+    ))
+
     render() {
         return <Carousel autoplay>{this.renderCarousel(carouselImgs)}</Carousel>;
-    }
-
-    renderCarousel(imgs) {
-        return imgs.map((item, index) => (
-            <div key={index} className={style.carouselImgContainer}>
-                <img src={item} />
-            </div>
-        ));
     }
 }

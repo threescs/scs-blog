@@ -6,7 +6,7 @@ const config = {
         function (data) {
             let ret = '';
             for (const it in data) {
-                if (data.hasOwnProperty(it)) {
+                if (Object.prototype.hasOwnProperty.call(data, it)) {
                     ret += `${encodeURIComponent(it)}=${encodeURIComponent(data[it])}&`;
                 }
             }
