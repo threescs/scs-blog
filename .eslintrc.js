@@ -16,7 +16,7 @@ module.exports = {
         "react"
     ],
     "rules": {
-      "indent": [2, 4],
+      "indent": [2],
       "global-require": 0,
       "new-cap": 0,
       "func-names": 0,

@@ -18,5 +18,5 @@ render(
 );
 
 if (module.hot && process.env.NODE_ENV !== 'production') {
-    module.hot.accept();
+  module.hot.accept();
 }
