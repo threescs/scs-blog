@@ -37,6 +37,7 @@
     font-size: 40px;
     color: white;
     background: #6225E6;
+    cursor: pointer;
     transition: 1s;
     box-shadow: 6px 6px 0 black;
     -webkit-transform: skewX(-15deg);

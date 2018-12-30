@@ -6,6 +6,7 @@ import './reset.css';
 
 const div = document.createElement('div');
 div.setAttribute('id', 'app');
+div.setAttribute('style', 'height:100%');
 document.body.appendChild(div);
 
 const mountNode = document.getElementById('app');

@@ -4,7 +4,9 @@ body, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, img, div, dl, dt, dd
     margin: 0;
     padding: 0;
 }
-
+body, html{
+  height: 100%;
+}
 body {
     font-size: 15px;
 }
@@ -51,11 +53,6 @@ a {
 .fr {
     float: right;
 }
-
-body {
-    background: #eee;
-}
-
 
 
 

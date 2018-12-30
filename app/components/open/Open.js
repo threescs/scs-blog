@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import PropTypes from 'prop-type';
 import { setup, resize } from '../../lib/Canvaspipeline';
 import style from './style.css';
 
 export default class Open extends Component {
+  static propTypes = {
+    history: PropTypes.array,
+  }
+
   constructor(props) {
     super(props);
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(
       this,
     );
   }
+
 
   componentDidMount() {
     // 执行canvas逻辑
@@ -18,13 +24,14 @@ export default class Open extends Component {
   }
 
   render() {
+    const { history } = this.props;
     return (
         <main>
             <div className={`${style.content} content-canvas`}>
                 <h2 className={style.title}> Scs </h2>
             </div>
             <div className={style.btn}>
-                <button className={style.cta} type="button">
+                <button className={style.cta} type="button" onClick={() => { history.push('/room'); }}>
                     <span>Go</span>
                     <span>
                         <svg width="66px" height="43px">
