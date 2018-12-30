@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-type';
+import PropTypes from 'prop-types';
 import Open from '../../components/open/Open';
 
-class Root extends Component {
+export default class Root extends Component {
   static propTypes = {
-    history: PropTypes.array,
+    history: PropTypes.object,
   }
 
   render() {
@@ -14,4 +14,3 @@ class Root extends Component {
     );
   }
 }
-export default Root;

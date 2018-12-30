@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import PropTypes from 'prop-type';
+import PropTypes from 'prop-types';
 import { setup, resize } from '../../lib/Canvaspipeline';
 import style from './style.css';
 
+
 export default class Open extends Component {
   static propTypes = {
-    history: PropTypes.array,
+    history: PropTypes.object,
   }
 
   constructor(props) {
@@ -19,8 +20,8 @@ export default class Open extends Component {
 
   componentDidMount() {
     // 执行canvas逻辑
-    window.addEventListener('load', setup);
-    window.addEventListener('resize', resize);
+    setup();
+    resize();
   }
 
   render() {
