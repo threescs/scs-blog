@@ -4,7 +4,7 @@ import favicon from 'serve-favicon'
 import httpProxy from 'http-proxy' //把请求代理转发到其他的服务器
 import compression from 'compression'
 import connectHistoryApiFallback from 'connect-history-api-fallback' //搭配react-route, react的history模式会出现404各种错误(完美解决)
-import config from '../config/config'
+import config from '../config/app.config'
 
 const app = new Express();
 const port = config.port;
@@ -26,7 +26,7 @@ app.use(compression());
 app.use(favicon(path.join(__dirname, '..', 'static', 'scs.ico')));
 
 
-//热更新 
+//热更新
 if(process.env.NODE_ENV!=='production') {
     const Webpack = require('webpack');
     const WebpackDevMiddleware = require('webpack-dev-middleware');

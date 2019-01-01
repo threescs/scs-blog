@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import style from './style.css';
+import aniStyle from '../../lib/animate.css';
 
 class Room extends Component {
   constructor(props) {
@@ -45,25 +46,25 @@ class Room extends Component {
 
   render() {
     return (
-        <div className={style.box}>
+        <div className={`${style.box} `}>
             <div className={style.cards} ref={(mol) => { this.cards = mol; }}>
                 <h3>尚成帅的小屋</h3>
                 <h1>欢迎哦</h1>
-                <div className={`${style.card} ${style.card__one}`}>
+                <div className={`${style.card} ${style.card__one} ${aniStyle.animated} ${aniStyle.bounceInLeft}`}>
                     <div className={style.card__bg} id="card_bg" />
                     <img className={style.card__img} src={require('./3dr_mono.png')} id="card_img" />
                     <div className={style.card__text}>
                         <p className={style.card__title}>Princess Mononoke</p>
                     </div>
                 </div>
-                <div className={`${style.card} ${style.card__two}`}>
+                <div className={`${style.card} ${style.card__two} ${aniStyle.animated} ${aniStyle.bounceInLeft}`}>
                     <div className={style.card__bg} id="card_bg" />
                     <img className={style.card__img} src={require('./3dr_chihiro.png')} id="card_img" />
                     <div className={style.card__text}>
                         <p className={style.card__title}>Spirited Away</p>
                     </div>
                 </div>
-                <div className={`${style.card} ${style.card__three}`}>
+                <div className={`${style.card} ${style.card__three} ${aniStyle.animated} ${aniStyle.bounceInLeft}`}>
                     <div className={style.card__bg} id="card_bg" />
                     <img className={style.card__img} src={require('./3dr_howlcastle.png')} id="card_img" />
                     <div className={style.card__text}>

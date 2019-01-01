@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   background: #642B73;
-  background: linear-gradient(to bottom, #C6426E, #642B73);
+  background: linear-gradient(to bottom, black,gray);
 }
 h1 {
   color: #3e3e42;
@@ -60,6 +60,7 @@ h3 {
   transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   width: 175px;
   text-align: center;
+  cursor: pointer;
 }
 .card:not(:last-child) {
   margin-right: 30px;
