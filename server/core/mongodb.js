@@ -4,7 +4,7 @@
  */
 
  const consola = require('consola');
- const CONFIG = require('../config/server.config');
+ const CONFIG = require('../../config/server.config');
  const mongoose = require('mongoose')
  const autoIncrement = require('mongoose-auto-increment')
 
