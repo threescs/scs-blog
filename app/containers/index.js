@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PureRenderMixiin from 'react-addons-pure-render-mixin';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Root from './root/Root';
-import Room from './room/Room';
+import routers from '../router/index';
 
 class AppIndex extends Component {
   constructor(props) {
@@ -16,8 +15,7 @@ class AppIndex extends Component {
     return (
         <Router>
             <Switch>
-                <Route exact path="/" component={Root} />
-                <Route path="/room" component={Room} />
+                {routers.map((r, key) => <Route component={r.component} exact={!!r.exact} key={key} path={r.path} />)}
             </Switch>
         </Router>
     );
