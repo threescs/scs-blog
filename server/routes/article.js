@@ -68,7 +68,7 @@ exports.getArticleList = (req, res) => {
   Article.count(conditions, (err, count) => {
 
     if (err) {
-      console.log('Error': err);
+      console.log('Error:',  err);
     } else {
       responseData.count = count;
       // 待返回的字段
@@ -119,7 +119,7 @@ exports.getArticleList = (req, res) => {
           } else if(tag_id) {
             // 根据标签 id 返回数据
             result.forEach(item => {
-              if (item.category.indexOf(category_id) > -1) {
+              if (item.tags.indexOf(tag_id) > -1) {
                 newList.push(item);
               }
             });
