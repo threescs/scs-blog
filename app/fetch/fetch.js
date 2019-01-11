@@ -1,36 +1,39 @@
 import axios from 'axios';
 
-const config = {
-  baseUrl: 'api',
-  transformRequest: [
-    function (data) {
-      let ret = '';
-      for (const it in data) {
-        if (Object.prototype.hasOwnProperty.call(data, it)) {
-          ret += `${encodeURIComponent(it)}=${encodeURIComponent(data[it])}&`;
-        }
-      }
-      return ret;
-    },
-  ],
-  transformResponse: [
-    function (data) {
-      return data;
-    },
-  ],
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+// 创建axios实例
+let service = null;
+if (process.env.NODE_ENV === 'development') {
+  service = axios.create({
+    baseURL: '/api', // api的base_url
+    timeout: 50000, // 请求超时时间
+  });
+} else {
+  // 生产环境下
+  service = axios.create({
+    baseURL: '/api', // api的base_url
+    // baseURL: 'http://47.106.136.114:3000/', // api的base_url
+    timeout: 50000, // 请求超时时间
+  });
+}
+
+// console.log('process.env.BASE_URL',process.env.BASE_URL)
+// request拦截器 axios的一些配置
+service.interceptors.request.use(
+  config => config,
+  (error) => {
+    // Do something with request error
+    console.error('error:', error); // for debug
+    Promise.reject(error);
   },
-  timeout: 10000,
-  responseType: 'json',
-};
-// 响应拦截器
-axios.interceptors.response.use(res => res.data);
+);
 
-export function get(url) {
-  return axios.get(url, config);
-}
+// respone拦截器 axios的一些配置
+service.interceptors.response.use(
+  response => response,
+  (error) => {
+    console.error(`error:${error}`); // for debug
+    return Promise.reject(error);
+  },
+);
 
-export function post(url, data) {
-  return axios.post(url, data, config);
-}
+export default service;

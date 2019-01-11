@@ -24,6 +24,15 @@ const config = [
       loading: () => <div />,
     }),
   },
+  {
+    name: 'articles',
+    path: '/articles',
+    exact: true,
+    component: Loadable({
+      loader: () => import('../containers/articles/Articles.js'),
+      loading: () => <div />,
+    }),
+  },
 ];
 
 export default config;

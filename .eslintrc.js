@@ -25,12 +25,14 @@ module.exports = {
       "require-yield": 0,
       "guard-for-in": 0,
       "object-curly-newline": 0,
+      'camelcase':0,
 
       "import/no-extraneous-dependencies": 0,
       "import/no-unresolved": 0,
       "import/no-commonjs": 0,
       "import/no-nodejs-modules": 0,
       "import/no-mutable-exports": 0,
+      "import/prefer-default-export":0,
       "import/extensions": [
           2,
           {
