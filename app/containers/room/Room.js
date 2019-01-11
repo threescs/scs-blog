@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import PropTypes from 'prop-types';
-import style from './style.css';
+import './style.less';
 import aniStyle from '../../lib/animate.css';
 
 class Room extends Component {
@@ -53,29 +53,29 @@ class Room extends Component {
     const { history } = this.props;
     console.log(history);
     return (
-        <div className={`${style.box} `}>
-            <div className={style.cards} ref={(mol) => { this.cards = mol; }}>
+        <div className="box">
+            <div className="cards" ref={(mol) => { this.cards = mol; }}>
                 <h3>尚成帅的小屋</h3>
                 <h1>欢迎哦</h1>
-                <div className={`${style.card} ${style.card__one} ${aniStyle.animated} ${aniStyle.bounceInLeft}`} onClick={() => { history.push('/articles'); }}>
-                    <div className={style.card__bg} id="card_bg" />
-                    <img className={style.card__img} src={require('./3dr_mono.png')} id="card_img" />
-                    <div className={style.card__text}>
-                        <p className={style.card__title}>Personal Blog</p>
+                <div className={`card card_one ${aniStyle.animated} ${aniStyle.bounceInLeft}`} onClick={() => { history.push('/articles'); }}>
+                    <div className="card_bg" id="card_bg" />
+                    <img className="card_img" src={require('./3dr_mono.png')} id="card_img" />
+                    <div className="card_text">
+                        <p className="card_title">Personal Blog</p>
                     </div>
                 </div>
-                <div className={`${style.card} ${style.card__two} ${aniStyle.animated} ${aniStyle.bounceInLeft}`}>
-                    <div className={style.card__bg} id="card_bg" />
-                    <img className={style.card__img} src={require('./3dr_chihiro.png')} id="card_img" />
-                    <div className={style.card__text}>
-                        <p className={style.card__title}>Spirited Away</p>
+                <div className={`card card_two ${aniStyle.animated} ${aniStyle.bounceInLeft}`}>
+                    <div className="card_bg" id="card_bg" />
+                    <img className="card_img" src={require('./3dr_chihiro.png')} id="card_img" />
+                    <div className="card_text">
+                        <p className="card_title">Spirited Away</p>
                     </div>
                 </div>
-                <div className={`${style.card} ${style.card__three} ${aniStyle.animated} ${aniStyle.bounceInLeft}`}>
-                    <div className={style.card__bg} id="card_bg" />
-                    <img className={style.card__img} src={require('./3dr_howlcastle.png')} id="card_img" />
-                    <div className={style.card__text}>
-                        <p className={style.card__title}> Howl&apos;s Moving Castle </p>
+                <div className={`card card_three ${aniStyle.animated} ${aniStyle.bounceInLeft}`}>
+                    <div className="card_bg" id="card_bg" />
+                    <img className="card_img" src={require('./3dr_howlcastle.png')} id="card_img" />
+                    <div className="card_text">
+                        <p className="card_title"> Howl&apos;s Moving Castle </p>
                     </div>
                 </div>
             </div>
