@@ -50,7 +50,7 @@ const artcleSchema = new mongoose.Schema({
   // 封面图
   img_url: {
     type: String,
-    default: ''
+    default: 'https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/whfpf%3D180%2C140%2C50/sign=4bfff88add58ccbf1be9e67a7fe58d06/9213b07eca806538f4f6f52b9bdda144ad3482ee.jpg'
   },
 
   // 文章类型 => 1: 普通文章, 2: 关于我
