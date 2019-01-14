@@ -8,6 +8,8 @@ import PropTypes from 'prop-types';
 import https from '../../fetch/fetch';
 import { getScrollTop, getDocumentHeight, getWindowHeight, getQueryStringByName, timestampToTime } from '../../util/util';
 import { saveArticlesList } from '../../store/actions/articles';
+import LoadingCom from '../../components/loading/Loading';
+import LoadEndCom from '../../components/loadEnd/LoadEnd';
 
 @connect(state => state.getIn(['articles']), { saveArticlesList })
 class Articles extends Component {
@@ -114,7 +116,7 @@ class Articles extends Component {
     }
 
     render() {
-      const { articlesList, tag_id, tag_name } = this.state;
+      const { articlesList, tag_id, tag_name, isLoading, isLoadEnd } = this.state;
       const list = articlesList.map(item => (
           <ReactCSSTransitionGroup
               key={item._id}
@@ -168,6 +170,8 @@ class Articles extends Component {
                   </h3>
               ) : ''}
               <ul className="note-list">{list}</ul>
+              {isLoading ? <LoadingCom /> : ''}
+              {isLoadEnd ? <LoadEndCom /> : ''}
           </div>
       );
     }
