@@ -8,5 +8,6 @@ module.exports = app => {
   app.post('/addArticle', article.addArticle);
   app.get('/getArticleList', article.getArticleList);
 
-  app.get('/getLinkList', link.getLinkList)
+  app.get('/getLinkList', link.getLinkList);
+  app.post('/addLink', link.addLink);
 }
