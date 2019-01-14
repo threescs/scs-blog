@@ -13,7 +13,7 @@ import { mongoose } from "../core/mongodb";
   desc: { type: String, default: '' },
 
   // 链接 url
-  url: { type: String, required: true, validate:  /\S+/, default: "" },
+  url: { type: String, required: true, validate:  /\S+/, default: '' },
 
   // 图标
   icon: { type: String, default: '' },
