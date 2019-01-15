@@ -4,9 +4,9 @@ import { Carousel } from 'antd';
 import style from './style.less';
 
 const carouselImgs = [
-  require('./banner_1.png'),
-  require('./banner_2.png'),
-  require('./banner_3.png'),
+  require('../../assets/banner_1.png'),
+  require('../../assets/banner_2.png'),
+  require('../../assets/banner_3.png'),
 ];
 
 export default class Banner extends Component {

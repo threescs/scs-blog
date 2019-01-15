@@ -59,21 +59,21 @@ class Room extends Component {
                 <h1>欢迎哦</h1>
                 <div className={`card card_one ${aniStyle.animated} ${aniStyle.bounceInLeft}`} onClick={() => { history.push('/articles'); }}>
                     <div className="card_bg" id="card_bg" />
-                    <img className="card_img" src={require('./3dr_mono.png')} id="card_img" />
+                    <img className="card_img" src={require('../../assets/3dr_mono.png')} id="card_img" />
                     <div className="card_text">
                         <p className="card_title">Personal Blog</p>
                     </div>
                 </div>
                 <div className={`card card_two ${aniStyle.animated} ${aniStyle.bounceInLeft}`}>
                     <div className="card_bg" id="card_bg" />
-                    <img className="card_img" src={require('./3dr_chihiro.png')} id="card_img" />
+                    <img className="card_img" src={require('../../assets/3dr_chihiro.png')} id="card_img" />
                     <div className="card_text">
                         <p className="card_title">Spirited Away</p>
                     </div>
                 </div>
                 <div className={`card card_three ${aniStyle.animated} ${aniStyle.bounceInLeft}`}>
                     <div className="card_bg" id="card_bg" />
-                    <img className="card_img" src={require('./3dr_howlcastle.png')} id="card_img" />
+                    <img className="card_img" src={require('../../assets/3dr_howlcastle.png')} id="card_img" />
                     <div className="card_text">
                         <p className="card_title"> Howl&apos;s Moving Castle </p>
                     </div>
