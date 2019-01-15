@@ -23,6 +23,8 @@ const store = createStore(
   ),
 );
 
+
+// 根标签
 const div = document.createElement('div');
 div.setAttribute('id', 'app');
 div.setAttribute('style', 'height:100%');
