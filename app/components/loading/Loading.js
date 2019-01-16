@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Spin } from 'antd';
+import { Icon, Spin } from 'antd';
 
 class LoadingCom extends Component {
   render() {
@@ -9,9 +9,10 @@ class LoadingCom extends Component {
       padding: 50,
       fontSize: 16,
     };
+    const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
     return (
         <div style={style}>
-            <Spin size="large" />
+            <Spin indicator={antIcon} />
         </div>
     );
   }
