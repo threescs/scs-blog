@@ -1,6 +1,7 @@
 import './index.less';
 import React, { Component } from 'react';
 import { Icon, Avatar, message } from 'antd';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/scs.jpg';
 import https from '../../fetch/fetch';
 
@@ -13,12 +14,15 @@ class SliderRight extends Component {
       pageNum: 1,
       pageSize: 50,
       linkList: [],
+      list: [],
     };
     this.loadLink = this.loadLink.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount() {
     this.loadLink();
+    this.handleSearch();
   }
 
   loadLink = () => {
@@ -43,8 +47,36 @@ class SliderRight extends Component {
     });
   }
 
+  // tag
+  handleSearch = () => {
+    const { keyword, pageNum, pageSize } = this.state;
+    https.get('getTagList', {
+      params: {
+        keyword,
+        pageNum,
+        pageSize,
+      },
+    }).then((res) => {
+      if (res.status === 200 && res.data.code === 0) {
+        this.setState({
+          list: res.data.data.list,
+        });
+      } else {
+        message.error(res.data.message);
+      }
+    })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   render() {
-    const { linkList } = this.state;
+    const { linkList, list } = this.state;
+    const listChildren = list.map(item => (
+        <Link className="item" key={item._id} to={`/articles?tag_id=${item._id}&tag_name=${item.name}&category_id=`}>
+            <span key={item._id}>{item.name}</span>
+        </Link>
+    ));
     const linkChildren = linkList.map(item => (
         <a key={item._id} target="_blank" rel="noopener noreferrer" href={item.url}>
             <Icon
@@ -78,6 +110,7 @@ class SliderRight extends Component {
             </div>
             <div className="tags">
                 <div className="title">标签云</div>
+                {listChildren}
             </div>
         </div>
     );

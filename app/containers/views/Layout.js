@@ -40,7 +40,7 @@ export default class Layouts extends Component {
                       </Layout>
                   </Content>
                   <Footer style={{ textAlign: 'center', background: '#fff' }}>
-                    小帅的博客开启了!
+                    ©2019 前端小将 Created by Scs
                   </Footer>
               </Layout>
               <BackTop />
