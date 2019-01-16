@@ -60,7 +60,7 @@ class SliderRight extends Component {
         <div className="right">
             <Avatar className="right-logo" src={logo} size={130} icon="user" />
             <div className="title">Scs</div>
-            <div className="right-content"></div>
+            <div className="right-content" />
             <div className="introduce">
                 <div className="title">个人介绍</div>
                 <div className="content">
