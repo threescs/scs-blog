@@ -10,8 +10,8 @@ const { Content, Footer, Sider } = Layout;
 
 export default class Layouts extends Component {
   static propTypes = {
-    location: PropTypes.object.isRequired,
-    children: PropTypes.object.isRequired,
+    location: PropTypes.object,
+    children: PropTypes.array,
   };
 
   render() {
