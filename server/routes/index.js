@@ -3,6 +3,7 @@
  */
 const article = require('./article');
 const link = require('./link');
+const tag = require('./tag');
 
 module.exports = app => {
   app.post('/addArticle', article.addArticle);
@@ -10,4 +11,8 @@ module.exports = app => {
 
   app.get('/getLinkList', link.getLinkList);
   app.post('/addLink', link.addLink);
+
+	app.get('/getTagList', tag.getTagList);
+  app.post('/addTag', tag.addTag);
+	app.post('/delTag', tag.delTag);
 }
