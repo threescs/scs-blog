@@ -104,6 +104,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "Scs Blog",
             showErrors: true,
+            template: pathLib.resolve(ENTRY_PATH, 'index.html'),
         }),
         new webpack.NoEmitOnErrorsPlugin(),//保证出错时页面不阻塞，且会在编译结束后报错
         new ExtractTextPlugin({

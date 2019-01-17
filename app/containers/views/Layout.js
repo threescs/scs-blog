@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Layout, BackTop } from 'antd';
 import SliderRight from '../slider/Slider';
+import Nav from '../nav/Nav';
 import { isMobileOrPc } from '../../util/util';
 
 const { Content, Footer, Sider } = Layout;
@@ -28,6 +29,7 @@ export default class Layouts extends Component {
     return (
       !isShowSlider ? (<div style={{ height: '100%' }}>{children}</div>) : (
           <div className="Layouts">
+              <Nav pathname={pathname} />
               <Layout className="layout">
                   <Content>
                       <Layout style={{ padding: '24px 0', background: '#fff' }}>

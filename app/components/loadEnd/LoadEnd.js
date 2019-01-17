@@ -10,7 +10,7 @@ class LoadEndCom extends Component {
       fontSize: 16,
     };
     return (
-        <div style={style}>◆◆◆◆◆◆◆◆◆ 我也是有底线的啦！◆◆◆◆◆◆◆◆◆</div>
+        <div style={style}>◆◆◆ 我也是有底线的啦！◆◆◆</div>
     );
   }
 }

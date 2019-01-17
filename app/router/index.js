@@ -11,7 +11,7 @@ const config = [
     path: '/',
     exact: true,
     component: Loadable({
-      loader: () => import('../containers/root/Root.js'),
+      loader: () => import(/* webpackChunkName: "Root" */'../containers/root/Root.js'),
       loading: () => <div />,
     }),
   },
@@ -20,7 +20,7 @@ const config = [
     path: '/room',
     exact: true,
     component: Loadable({
-      loader: () => import('../containers/room/Room.js'),
+      loader: () => import(/* webpackChunkName: "Room" */'../containers/room/Room.js'),
       loading: () => <div />,
     }),
   },
@@ -29,7 +29,16 @@ const config = [
     path: '/articles',
     exact: true,
     component: Loadable({
-      loader: () => import('../containers/articles/Articles.js'),
+      loader: () => import(/* webpackChunkName: "Articles" */'../containers/articles/Articles.js'),
+      loading: () => <div />,
+    }),
+  },
+  {
+    name: 'hot',
+    path: '/hot',
+    exact: true,
+    component: Loadable({
+      loader: () => import(/* webpackChunkName: "Articles" */'../containers/articles/Articles.js'),
       loading: () => <div />,
     }),
   },
