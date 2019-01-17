@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Carousel } from 'antd';
-import style from './style.less';
+import style from './index.less';
 
 const carouselImgs = [
   require('../../assets/banner_1.png'),

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import PropTypes from 'prop-types';
-import style from './style.css';
+import style from './index.css';
 import { setup, resize } from '../../lib/Canvaspipeline';
 import { isMobileOrPc } from '../../util/util';
 

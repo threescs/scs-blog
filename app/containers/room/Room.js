@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import PropTypes from 'prop-types';
-import './style.less';
+import './index.less';
 import aniStyle from '../../lib/animate.css';
 
 class Room extends Component {
