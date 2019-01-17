@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import PropTypes from 'prop-types';
-import { setup, resize } from '../../lib/Canvaspipeline';
 import style from './style.css';
-
+import { setup, resize } from '../../lib/Canvaspipeline';
+import { isMobileOrPc } from '../../util/util';
 
 export default class Open extends Component {
   static propTypes = {
@@ -12,6 +12,9 @@ export default class Open extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      isMobile: false,
+    };
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(
       this,
     );
@@ -22,17 +25,24 @@ export default class Open extends Component {
     // 执行canvas逻辑
     setup();
     resize();
+    // mobile 不进入此页面
+    if (isMobileOrPc()) {
+      this.setState({
+        isMobile: true,
+      });
+    }
   }
 
   render() {
     const { history } = this.props;
+    const { isMobile } = this.state;
     return (
         <main>
             <div className={`${style.content} content-canvas`}>
                 <h2 className={style.title}> Scs </h2>
             </div>
             <div className={style.btn}>
-                <button className={style.cta} type="button" onClick={() => { history.push('/room'); }}>
+                <button className={style.cta} type="button" onClick={() => { if (isMobile) { history.push('/articles'); } else { history.push('/room'); } }}>
                     <span>Go</span>
                     <span>
                         <svg width="66px" height="43px">
