@@ -8,6 +8,7 @@ const tag = require('./tag');
 module.exports = app => {
   app.post('/addArticle', article.addArticle);
   app.get('/getArticleList', article.getArticleList);
+  app.post('/getArticleDetail', article.getArticleDetail);
 
   app.get('/getLinkList', link.getLinkList);
   app.post('/addLink', link.addLink);
