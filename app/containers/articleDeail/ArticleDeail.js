@@ -2,6 +2,8 @@ import './index.less';
 import './marked.css';
 import React, { Component } from 'react';
 import { Icon, Avatar, message } from 'antd';
+import marked from 'marked';
+import hljs from 'highlight.js';
 import logo from '../../assets/scs.jpg';
 import LoadingCom from '../../components/loading/Loading';
 import https from '../../fetch/fetch';
@@ -40,6 +42,21 @@ class ArticlesDetail extends Component {
   componentWillMount() {
     const { article_id } = this.state;
     this.handleSearch(article_id);
+
+    // marked相关配置
+    marked.setOptions({
+      renderer: new marked.Renderer(),
+      gfm: true,
+      tables: true,
+      breaks: true,
+      pedantic: false,
+      sanitize: true,
+      smartLists: true,
+      smartypants: false,
+      highlight(code) {
+        return hljs.highlightAuto(code).value;
+      },
+    });
   }
 
   // 文章详情
@@ -87,7 +104,6 @@ class ArticlesDetail extends Component {
                         <span className="name">
                             <a href="/articles">{articleDetail.author}</a>
                         </span>
-                        <div props-data-classes="user-follow-button-header" data-author-follow-button="" />
                         <div className="meta">
                             <span className="publish-time">
                                 {articleDetail.create_time ? timestampToTime(articleDetail.create_time, true) : ''}
@@ -118,6 +134,16 @@ class ArticlesDetail extends Component {
                 </div>
             </div>
             {isLoading ? <LoadingCom /> : ''}
+
+            <div className="content">
+                <div
+                    id="content"
+                    className="article-detail"
+                    dangerouslySetInnerHTML={{
+                      __html: articleDetail.content ? marked(articleDetail.content) : null,
+                    }}
+                />
+            </div>
         </div>
     );
   }
