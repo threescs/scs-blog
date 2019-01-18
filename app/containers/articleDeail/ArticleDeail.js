@@ -16,6 +16,7 @@ class ArticlesDetail extends Component {
       isLoading: false,
       type: 1,
       article_id: getQueryStringByName('article_id'),
+      likeFlag: false,
       articleDetail: {
         _id: '',
         author: 'scs',
@@ -37,6 +38,7 @@ class ArticlesDetail extends Component {
       },
     };
     this.handleSearch = this.handleSearch.bind(this);
+    this.likeArticle = this.likeArticle.bind(this);
   }
 
   componentWillMount() {
@@ -83,9 +85,35 @@ class ArticlesDetail extends Component {
     });
   }
 
+  // 文章点赞
+  likeArticle() {
+    const { articleDetail } = this.state;
+    if (!articleDetail._id) {
+      message.error('改文章不存在!', 1);
+    }
+    this.setState({
+      isLoading: true,
+      likeFlag: true,
+    });
+    https.post('likeArticle', { id: articleDetail._id }, { withCredentials: true }).then((res) => {
+      if (res.status === 200 && res.data.code === 0) {
+        ++articleDetail.meta.likes;
+        this.setState({
+          isLoading: false,
+          articleDetail,
+        });
+        message.success(res.data.message, 1);
+      } else {
+        message.error(res.data.message, 1);
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+
 
   render() {
-    const { articleDetail, isLoading } = this.state;
+    const { articleDetail, isLoading, likeFlag } = this.state;
     const list = articleDetail.tags.map(item => (
         <span key={item.id} className="tag">
             {item.name}
@@ -134,7 +162,6 @@ class ArticlesDetail extends Component {
                 </div>
             </div>
             {isLoading ? <LoadingCom /> : ''}
-
             <div className="content">
                 <div
                     id="content"
@@ -143,6 +170,20 @@ class ArticlesDetail extends Component {
                       __html: articleDetail.content ? marked(articleDetail.content) : null,
                     }}
                 />
+            </div>
+            <div className="heart" onClick={this.likeArticle}>
+                <div className="feed">
+                    <div className={['likeBtn', likeFlag === true ? 'heartAnimation' : null].join(' ')} id="like2" rel="like" />
+                </div>
+                {/* <Button
+                    type="danger"
+                    size="large"
+                    icon="heart"
+                    loading={isLoading}
+                    onClick={this.likeArticle}
+                >
+                给小帅点个赞!
+                </Button> */}
             </div>
         </div>
     );
