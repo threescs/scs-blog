@@ -10,10 +10,13 @@ module.exports = app => {
   app.get('/getArticleList', article.getArticleList);
   app.post('/getArticleDetail', article.getArticleDetail);
 
+  app.post('/likeArticle', article.likeArticle);
+
   app.get('/getLinkList', link.getLinkList);
   app.post('/addLink', link.addLink);
 
 	app.get('/getTagList', tag.getTagList);
   app.post('/addTag', tag.addTag);
-	app.post('/delTag', tag.delTag);
+  app.post('/delTag', tag.delTag);
+
 }
