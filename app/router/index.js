@@ -42,6 +42,15 @@ const config = [
       loading: () => <div />,
     }),
   },
+  {
+    name: 'articleDetail',
+    path: '/articleDetail',
+    exact: true,
+    component: Loadable({
+      loader: () => import(/* webpackChunkName: "ArticlesDetail" */'../containers/articleDeail/ArticleDeail.js'),
+      loading: () => <div />,
+    }),
+  },
 ];
 
 export default config;
