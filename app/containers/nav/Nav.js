@@ -81,6 +81,7 @@ class Nav extends Component {
 
   render() {
     const { isMobile, navTitle, menuCurrent, placement, visible } = this.state;
+    console.log(isMobile);
     return (
         <div className="left">
             {isMobile ? (
@@ -185,7 +186,7 @@ class Nav extends Component {
                 closable={false}
                 onClose={this.onClose}
                 visible={visible}
-                height={295}
+                height={200}
             >
                 <div className="drawer">
                     <p onClick={this.onClose}>
@@ -198,10 +199,9 @@ class Nav extends Component {
                     </p>
                     <p onClick={this.onClose}>
                         <Link to="/hot">
-                            <Icon type="fire" onClick={this.showLoginModal} />
+                            <Icon type="fire" />
                             {' '}
 热门
-
                         </Link>
                     </p>
                 </div>
