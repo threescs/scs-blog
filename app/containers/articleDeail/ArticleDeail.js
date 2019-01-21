@@ -171,19 +171,11 @@ class ArticlesDetail extends Component {
                     }}
                 />
             </div>
-            <div className="heart" onClick={this.likeArticle}>
+            <div className="heart">
                 <div className="feed">
-                    <div className={['likeBtn', likeFlag === true ? 'heartAnimation' : null].join(' ')} id="like2" rel="like" />
+                    <div className={['likeBtn', likeFlag === true ? 'heartAnimation' : null].join(' ')} id="like2" rel="like" onClick={this.likeArticle} />
+                    <p className="likeTxt">给小帅点个赞!</p>
                 </div>
-                {/* <Button
-                    type="danger"
-                    size="large"
-                    icon="heart"
-                    loading={isLoading}
-                    onClick={this.likeArticle}
-                >
-                给小帅点个赞!
-                </Button> */}
             </div>
         </div>
     );
