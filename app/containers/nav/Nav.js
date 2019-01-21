@@ -2,9 +2,10 @@ import './index.less';
 import React, { Component } from 'React';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Layout, Icon, Menu, Row, Col, Drawer } from 'antd';
+import { Layout, Icon, Menu, Row, Col, Drawer, Button } from 'antd';
 import logo from '../../assets/scs.jpg';
 import { isMobileOrPc } from '../../util/util';
+import NewArticle from '../newArticle/NewArticle';
 
 const { Header } = Layout;
 
@@ -18,6 +19,7 @@ class Nav extends Component {
     this.state = {
       isMobile: false,
       visible: false,
+      newArticle: false,
       placement: 'top',
       menuCurrent: '',
       navTitle: '首页',
@@ -26,6 +28,8 @@ class Nav extends Component {
     this.showDrawer = this.showDrawer.bind(this);
     this.handleMenu = this.handleMenu.bind(this);
     this.onClose = this.onClose.bind(this);
+    this.showNewArticleModal = this.showNewArticleModal.bind(this);
+    this.handleNewArticleCancel = this.handleNewArticleCancel.bind(this);
   }
 
   componentDidMount() {
@@ -60,6 +64,18 @@ class Nav extends Component {
     });
   };
 
+  showNewArticleModal = () => {
+    this.setState({
+      newArticle: true,
+    });
+  };
+
+  handleNewArticleCancel = () => {
+    this.setState({
+      newArticle: false,
+    });
+  };
+
   initMenu(name) {
     let key = '1';
     let navTitle = '';
@@ -80,8 +96,7 @@ class Nav extends Component {
   }
 
   render() {
-    const { isMobile, navTitle, menuCurrent, placement, visible } = this.state;
-    console.log(isMobile);
+    const { isMobile, navTitle, menuCurrent, placement, visible, newArticle } = this.state;
     return (
         <div className="left">
             {isMobile ? (
@@ -177,6 +192,18 @@ class Nav extends Component {
                                 </Menu.Item>
                             </Menu>
                         </Col>
+                        <Col style={{ textAlign: 'right', width: '300px', float: 'left' }}>
+                            <div>
+                                <Button
+                                    type="primary"
+                                    icon="form"
+                                    style={{ marginRight: '15px' }}
+                                    onClick={this.showNewArticleModal}
+                                >
+                              发文章
+                                </Button>
+                            </div>
+                        </Col>
                     </Row>
                 </Header>
             )}
@@ -206,6 +233,7 @@ class Nav extends Component {
                     </p>
                 </div>
             </Drawer>
+            <NewArticle newArticleVisible={newArticle} handleCancel={this.handleNewArticleCancel} />
         </div>
     );
   }
