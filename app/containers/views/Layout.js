@@ -23,7 +23,7 @@ export default class Layouts extends Component {
     if (pathname !== '/' && pathname !== '/room') {
       isShowSlider = true;
     }
-    if (isMobileOrPc()) {
+    if (isMobileOrPc() || pathname === '/articleDetail') {
       isPhone = true;
     }
     return (

@@ -57,11 +57,17 @@ class newArticle extends Component {
   };
 
   handleChange = (event) => {
-    event.persist();
     this.setState({
       [event.target.name]: event.target.value,
     });
   };
+
+  selectChange = (event) => {
+    this.setState({
+      tags: event,
+    });
+  }
+
 
   submitOk() {
     this.addArticle(this.state);
@@ -92,7 +98,7 @@ class newArticle extends Component {
     const { newArticleVisible, handleCancel } = this.props;
     return (
         <Modal
-            title="发文"
+            title="编写文章"
             width={800}
             footer={null}
             visible={newArticleVisible}
@@ -126,6 +132,7 @@ class newArticle extends Component {
                     mode="multiple"
                     placeholder="请选择分类"
                     className="titleInput"
+                    onChange={this.selectChange}
                     value={tags}
                 >
                     {
