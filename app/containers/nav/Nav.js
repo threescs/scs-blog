@@ -172,6 +172,7 @@ class Nav extends Component {
                                 <Menu.Item key="1">
                                     <Link to="/">
                                         <Icon type="home" theme="outlined" />
+
 首页
 
                                     </Link>
@@ -179,6 +180,7 @@ class Nav extends Component {
                                 <Menu.Item key="2">
                                     <Link to="/articles">
                                         <Icon type="smile" theme="outlined" />
+
 博客
 
                                     </Link>
@@ -186,6 +188,7 @@ class Nav extends Component {
                                 <Menu.Item key="3">
                                     <Link to="/hot">
                                         <Icon type="fire" theme="outlined" />
+
 热门
 
                                     </Link>
@@ -200,6 +203,7 @@ class Nav extends Component {
                                     style={{ marginRight: '15px' }}
                                     onClick={this.showNewArticleModal}
                                 >
+
                               发文章
                                 </Button>
                             </div>
@@ -220,6 +224,7 @@ class Nav extends Component {
                         <Link to="/articles">
                             <Icon type="home" />
                             {' '}
+
 博客
 
                         </Link>
@@ -228,6 +233,7 @@ class Nav extends Component {
                         <Link to="/hot">
                             <Icon type="fire" />
                             {' '}
+
 热门
                         </Link>
                     </p>

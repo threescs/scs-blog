@@ -4,6 +4,7 @@
 const article = require('./article');
 const link = require('./link');
 const tag = require('./tag');
+const category = require('./category');
 
 module.exports = app => {
   app.post('/addArticle', article.addArticle);
@@ -19,4 +20,7 @@ module.exports = app => {
   app.post('/addTag', tag.addTag);
   app.post('/delTag', tag.delTag);
 
+  app.post('/addCategory', category.addCategory);
+	app.post('/delCategory', category.delCategory);
+	app.get('/getCategoryList', category.getCategoryList);
 }

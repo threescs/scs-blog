@@ -96,14 +96,17 @@ class SliderRight extends Component {
             <div className="introduce">
                 <div className="title">个人介绍</div>
                 <div className="content">
+
           小帅的个人网站开启了!
                     {' '}
                     <br />
                     {' '}
+
 小帅的个人网站开启了!
                     {' '}
                     <br />
                     {' '}
+
 小帅的个人网站开启了!
                 </div>
                 <div className="footer">{linkChildren}</div>

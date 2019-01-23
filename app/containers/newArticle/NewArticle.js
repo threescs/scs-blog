@@ -144,6 +144,7 @@ class newArticle extends Component {
             </div>
             <div className="login-submit">
                 <Button style={{ width: '100%' }} type="primary" onClick={this.submitOk}>
+
             发布
                 </Button>
             </div>

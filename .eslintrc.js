@@ -21,6 +21,7 @@ module.exports = {
       "new-cap": 0,
       "func-names": 0,
       "consistent-return": 0,
+      "linebreak-style": [0 ,"error", "windows"],
       "max-len": 0,
       "require-yield": 0,
       "guard-for-in": 0,

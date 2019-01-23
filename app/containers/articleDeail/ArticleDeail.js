@@ -137,18 +137,22 @@ class ArticlesDetail extends Component {
                                 {articleDetail.create_time ? timestampToTime(articleDetail.create_time, true) : ''}
                             </span>
                             <span className="wordage">
+
 字数
                                 {articleDetail.numbers}
                             </span>
                             <span className="views-count">
+
 阅读
                                 {articleDetail.meta.views}
                             </span>
                             <span className="comments-count">
+
 评论
                                 {articleDetail.meta.comments}
                             </span>
                             <span className="likes-count">
+
 喜欢
                                 {articleDetail.meta.likes}
                             </span>
