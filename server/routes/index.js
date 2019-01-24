@@ -8,7 +8,9 @@ const category = require('./category');
 
 module.exports = app => {
   app.post('/addArticle', article.addArticle);
+  app.post('/delArticle', article.delArticle);
   app.get('/getArticleList', article.getArticleList);
+  app.get('/getArticleListAdmin', article.getArticleListAdmin);
   app.post('/getArticleDetail', article.getArticleDetail);
 
   app.post('/likeArticle', article.likeArticle);

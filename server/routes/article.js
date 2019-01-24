@@ -181,6 +181,7 @@ exports.getArticleDetail = (req, res) => {
       }
     }).populate([ //关联表
       { path: 'tag', },
+      { path: 'category', },
   ])
   } else { //个人介绍
     Article.findOne({ type: type }, (Error, data) => {
@@ -225,9 +226,111 @@ exports.getArticleDetail = (req, res) => {
         })
         .populate([
             { path: 'tag', },
+            { path: 'category', },
         ])
 }
 }
+// 删除文章
+exports.delArticle = (req, res) => {
+  let { id } = req.body;
+  Article.deleteMany({ _id: id })
+      .then(result => {
+          if (result.n === 1) {
+              responseClient(res, 200, 0, '删除成功!');
+          } else {
+              responseClient(res, 200, 1, '文章不存在');
+          }
+      })
+      .catch(err => {
+          console.error('err :', err);
+          responseClient(res);
+      });
+};
+
+// 后台文章列表
+exports.getArticleListAdmin = (req, res) => {
+  let keyword = req.query.keyword || null;
+  let state = req.query.state || '';
+  let likes = req.query.likes || '';
+  let pageNum = parseInt(req.query.pageNum) || 1;
+  let pageSize = parseInt(req.query.pageSize) || 10;
+  let conditions = {};
+  const reg = new RegExp(keyword, 'i');
+  if (!state) {
+      if (keyword) {
+          conditions = {
+              $or: [{ title: { $regex: reg } }, { desc: { $regex: reg } }],
+          };
+      }
+  } else if (state) {
+      state = parseInt(state);
+      if (keyword) {
+          conditions = {
+              $and: [
+                  { $or: [{ state: state }] },
+                  { $or: [{ title: { $regex: reg } }, { desc: { $regex: reg } }, { keyword: { $regex: reg } }] },
+              ],
+          };
+      } else {
+          conditions = { state };
+      }
+  }
+
+  let skip = pageNum - 1 < 0 ? 0 : (pageNum - 1) * pageSize;
+  let responseData = {
+      count: 0,
+      list: [],
+  };
+  Article.count(conditions, (err, count) => {
+      if (err) {
+          console.log('Error:' + err);
+      } else {
+          responseData.count = count;
+          // 待返回的字段
+          let fields = {
+              title: 1,
+              author: 1,
+              keyword: 1,
+              content: 1,
+              desc: 1,
+              img_url: 1,
+              tags: 1,
+              category: 1,
+              state: 1,
+              type: 1,
+              origin: 1,
+              comments: 1,
+              like_User_id: 1,
+              meta: 1,
+              create_time: 1,
+              update_time: 1,
+          };
+          let options = {
+              skip: skip,
+              limit: pageSize,
+              sort: { create_time: -1 },
+          };
+          Article.find(conditions, fields, options, (error, result) => {
+                  if (err) {
+                      console.error('Error:' + error);
+                      // throw error;
+                  } else {
+                      if (likes) {
+                          result.sort((a, b) => {
+                              return b.meta.likes - a.meta.likes;
+                          });
+                      }
+                      responseData.list = result;
+                      responseClient(res, 200, 0, '操作成功！', responseData);
+                  }
+              })
+              .populate([
+                { path: 'tag', },
+                { path: 'category', },
+            ])
+      }
+  });
+};
 
 //文章点赞
 exports.likeArticle = (req, res) => {
