@@ -22,7 +22,7 @@ exports.connect = () => {
   // 连接数据库
   mongoose.connect(CONFIG.MONGODB.uri, {
     useCreateIndex: true,
-    userNewUrlParser: true,
+    useNewUrlParser: true,
     promiseLibrary: global.Promise
   })
 
