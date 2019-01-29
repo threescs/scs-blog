@@ -195,7 +195,7 @@ class Nav extends Component {
                                 </Menu.Item>
                             </Menu>
                         </Col>
-                        <Col style={{ textAlign: 'right', width: '300px', float: 'left' }}>
+                        {/* <Col style={{ textAlign: 'right', width: '300px', float: 'left' }}>
                             <div>
                                 <Button
                                     type="primary"
@@ -207,7 +207,7 @@ class Nav extends Component {
                               发文章
                                 </Button>
                             </div>
-                        </Col>
+                        </Col> */}
                     </Row>
                 </Header>
             )}
@@ -239,7 +239,7 @@ class Nav extends Component {
                     </p>
                 </div>
             </Drawer>
-            <NewArticle newArticleVisible={newArticle} handleCancel={this.handleNewArticleCancel} />
+            {/* <NewArticle newArticleVisible={newArticle} handleCancel={this.handleNewArticleCancel} /> */}
         </div>
     );
   }
