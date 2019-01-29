@@ -332,6 +332,48 @@ exports.getArticleListAdmin = (req, res) => {
   });
 };
 
+// 修改文章
+exports.updateArticle = (req, res) => {
+  const { title, author, keyword, content, desc, img_url, tags, category, state, type, origin, id } = req.body;
+  Article.update({ _id: id }, {
+          title,
+          author,
+          keyword: keyword ? keyword.split(',') : [],
+          content,
+          desc,
+          img_url,
+          tags: tags ? tags.split(',') : [],
+          category: category ? category.split(',') : [],
+          state,
+          type,
+          origin,
+      }, )
+      .then(result => {
+          responseClient(res, 200, 0, '操作成功', result);
+      })
+      .catch(err => {
+          console.error(err);
+          responseClient(res);
+      });
+};
+
+// 删除文章
+exports.delArticle = (req, res) => {
+  let { id } = req.body;
+  Article.deleteMany({ _id: id })
+      .then(result => {
+          if (result.n === 1) {
+              responseClient(res, 200, 0, '删除成功!');
+          } else {
+              responseClient(res, 200, 1, '文章不存在');
+          }
+      })
+      .catch(err => {
+          console.error('err :', err);
+          responseClient(res);
+      });
+};
+
 //文章点赞
 exports.likeArticle = (req, res) => {
   let { id } = req.body;
