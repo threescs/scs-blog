@@ -28,8 +28,8 @@ class Nav extends Component {
     this.showDrawer = this.showDrawer.bind(this);
     this.handleMenu = this.handleMenu.bind(this);
     this.onClose = this.onClose.bind(this);
-    this.showNewArticleModal = this.showNewArticleModal.bind(this);
-    this.handleNewArticleCancel = this.handleNewArticleCancel.bind(this);
+    // this.showNewArticleModal = this.showNewArticleModal.bind(this);
+    // this.handleNewArticleCancel = this.handleNewArticleCancel.bind(this);
   }
 
   componentDidMount() {
