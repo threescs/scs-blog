@@ -2,10 +2,10 @@ import './index.less';
 import React, { Component } from 'React';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Layout, Icon, Menu, Row, Col, Drawer, Button } from 'antd';
+import { Layout, Icon, Menu, Row, Col, Drawer } from 'antd';
 import logo from '../../assets/scs.jpg';
 import { isMobileOrPc } from '../../util/util';
-import NewArticle from '../newArticle/NewArticle';
+// import NewArticle from '../newArticle/NewArticle';
 
 const { Header } = Layout;
 
@@ -19,7 +19,7 @@ class Nav extends Component {
     this.state = {
       isMobile: false,
       visible: false,
-      newArticle: false,
+      // newArticle: false,
       placement: 'top',
       menuCurrent: '',
       navTitle: '首页',
@@ -64,17 +64,17 @@ class Nav extends Component {
     });
   };
 
-  showNewArticleModal = () => {
-    this.setState({
-      newArticle: true,
-    });
-  };
+  // showNewArticleModal = () => {
+  //   this.setState({
+  //     newArticle: true,
+  //   });
+  // };
 
-  handleNewArticleCancel = () => {
-    this.setState({
-      newArticle: false,
-    });
-  };
+  // handleNewArticleCancel = () => {
+  //   this.setState({
+  //     newArticle: false,
+  //   });
+  // };
 
   initMenu(name) {
     let key = '1';
@@ -96,7 +96,7 @@ class Nav extends Component {
   }
 
   render() {
-    const { isMobile, navTitle, menuCurrent, placement, visible, newArticle } = this.state;
+    const { isMobile, navTitle, menuCurrent, placement, visible } = this.state;
     return (
         <div className="left">
             {isMobile ? (
