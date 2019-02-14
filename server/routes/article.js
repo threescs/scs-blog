@@ -383,7 +383,7 @@ exports.likeArticle = (req, res) => {
     fields.meta = data.meta;
     let like_users_arr = data.like_users.length ? data.like_users : [];
     fields.like_users = like_users_arr;
-    Article.update({ _id: id }, fields)
+    Article.updateOne({ _id: id }, fields)
     .then(result => {
         responseClient(res, 200, 0, '操作成功！', result);
     })
