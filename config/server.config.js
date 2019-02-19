@@ -19,7 +19,7 @@ exports.CROSS_DOMAIN = {
 		'http://www.shangchengshuai.cn',
 		'https://github.com/threescs',
 	],
-	allowedReferer: 'threescs',s
+	allowedReferer: 'threescs',
 };
 
 exports.MONGODB = {
