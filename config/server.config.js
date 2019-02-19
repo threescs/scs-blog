@@ -10,16 +10,16 @@ exports.APP = {
 	PORT: 8000,
 	ROOT_PATH: __dirname,
 	NAME: 'threescs',
-	URL: 'http://www.shangchengshuai.com',
+	URL: 'http://www.shangchengshuai.cn',
 	FRONT_END_PATH: path.join(__dirname, '..', 'shangchengshuai'),
 };
 
 exports.CROSS_DOMAIN = {
 	allowedOrigins: [
-		'http://www.shangchengshuai.com',
+		'http://www.shangchengshuai.cn',
 		'https://github.com/threescs',
 	],
-	allowedReferer: 'threescs',
+	allowedReferer: 'threescs',s
 };
 
 exports.MONGODB = {
@@ -42,7 +42,7 @@ exports.EMAIL = {
 
 exports.AKISMET = {
 	key: argv.akismet_key || 'your akismet Key',
-	blog: argv.akismet_blog || 'your akismet blog site, like: http://www.shangchengshuai.com',
+	blog: argv.akismet_blog || 'your akismet blog site, like: http://www.shangchengshuai.cn',
 };
 
 exports.GITHUB = {
