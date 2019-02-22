@@ -3,7 +3,7 @@ import { responseClient } from '../util';
 
 // get获取所有标签
 exports.getTagList = (req, res) => {
-  let keyword = req.query.keyword;
+  let keyword = req.query.keyword || null;
   let pageNum = parseInt(req.query.pageNum) || 1;
   let pageSize = parseInt(req.query.pageSize) || 10;
   let conditions = {}; //req
@@ -18,7 +18,7 @@ exports.getTagList = (req, res) => {
   };
   Tag.count(conditions, (err, count) => {
     if (err) {
-      console.error('Error:' + err)
+      console.error('Error:' + err);
     } else {
       responseData.count = count;
       // 待返回的字敦
