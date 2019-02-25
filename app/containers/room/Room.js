@@ -51,7 +51,6 @@ class Room extends Component {
 
   render() {
     const { history } = this.props;
-    console.log(history);
     return (
         <div className="box">
             <div className="cards" ref={(mol) => { this.cards = mol; }}>
