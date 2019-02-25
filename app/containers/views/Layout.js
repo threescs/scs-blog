@@ -43,7 +43,7 @@ export default class Layouts extends Component {
                   </Content>
                   <Footer style={{ textAlign: 'center', background: '#fff' }}>
 
-                    ©2019 前端小将 Created by Scs
+                    ©2019 一个Web开发者 Created by Scs
                   </Footer>
               </Layout>
               <BackTop />
