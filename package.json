@@ -59,7 +59,7 @@
     "morgan": "^1.9.1",
     "prop-types": "^15.6.2",
     "qs": "^6.5.1",
-    "react": "^15.6.1",
+    "react": "^16.5.2",
     "react-addons-css-transition-group": "^15.6.2",
     "react-addons-pure-render-mixin": "^15.6.0",
     "react-dom": "^15.6.1",
