@@ -131,7 +131,7 @@ exports.getArticleList = (req, res) => {
             });
             let len = newList.length;
             responseData.count = len;
-            responseData.list = result;
+            responseData.list = newList;
           } else if(tag_id) {
             // 根据标签 id 返回数据
             result.forEach(item => {
@@ -141,7 +141,7 @@ exports.getArticleList = (req, res) => {
             });
             let len = newList.length;
             responseData.count = len;
-            responseData.list = result;
+            responseData.list = newList;
           } else {
             responseData.list = result;
           }
