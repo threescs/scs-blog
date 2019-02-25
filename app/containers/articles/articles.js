@@ -127,7 +127,7 @@ class Articles extends Component {
               transitionLeaveTimeout={1000}
           >
               <li key={item._id} className="have-img">
-                  <a className="wrap-img" href={`/articleDetail?article_id=${item._id}`} target="_blank">
+                  <a className="wrap-img" href={`/articleDetail?article_id=${item._id}`} rel="noopener noreferrer" target="_blank">
                       <img className="img-blur-done" data-src={item.img_url} src={item.img_url} alt="120" />
                   </a>
                   <div className="content">
