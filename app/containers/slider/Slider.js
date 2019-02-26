@@ -107,7 +107,7 @@ class SliderRight extends Component {
                     <br />
                     {' '}
 
-Wonderful Life !
+Wonderful Life !
                 </div>
                 <div className="footer">{linkChildren}</div>
             </div>
