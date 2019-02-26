@@ -8,7 +8,7 @@ const autoIncrement = require('mongoose-auto-increment');
 //  自增ID插件配置
 categorySchema.plugin(autoIncrement.plugin, {
  model: 'Category',
- fieId: 'id',
+ field: 'id',
  startAt: 1,
  incrementBy: 1
 });

@@ -3,7 +3,7 @@ import { responseClient } from '../util';
 
 // 添加文章 post
 exports.addArticle = (req, res) => {
-  const {title, author, keyword, content, desc, img_url, tags, category, state, type, origin } = req.body;
+  const { title, author, keyword, content, desc, img_url, tags, category, state, type, origin } = req.body;
   let tempArticle = null;
   if (img_url) {
     tempArticle = new Article({
@@ -159,13 +159,12 @@ exports.getArticleDetail = (req, res) => {
   let fileter = Number(req.body.filter) || 1; //文章评论过滤
   if (type === 1) {
     if (!id) {
-      console.error('id:' + id);
       responseClient(res, 200, 1, '文章不存在!');
       return;
     }
-    Article.findOne({_id: id}, (error, data) => {
-      if (error) {
-        console.error('error:' + error);
+    Article.findOne({_id: id}, (Error, data) => {
+      if (Error) {
+        console.error('error:' + Error);
         // throw error;
       } else {
         data.meta.views = data.meta.views + 1; //浏览量加+
@@ -196,7 +195,7 @@ exports.getArticleDetail = (req, res) => {
       });
       }
     }).populate([ //关联表
-      { path: 'tag', },
+      { path: 'tags', },
       { path: 'category', },
   ])
   } else { //个人介绍
@@ -241,7 +240,7 @@ exports.getArticleDetail = (req, res) => {
             }
         })
         .populate([
-            { path: 'tag', },
+            { path: 'tags', },
             { path: 'category', },
         ])
 }
@@ -271,9 +270,9 @@ exports.getArticleListAdmin = (req, res) => {
   let pageNum = parseInt(req.query.pageNum) || 1;
   let pageSize = parseInt(req.query.pageSize) || 10;
   let conditions = {};
-  const reg = new RegExp(keyword, 'i');
   if (!state) {
       if (keyword) {
+          const reg = new RegExp(keyword, 'i'); //不区分大小写
           conditions = {
               $or: [{ title: { $regex: reg } }, { desc: { $regex: reg } }],
           };
@@ -281,6 +280,7 @@ exports.getArticleListAdmin = (req, res) => {
   } else if (state) {
       state = parseInt(state);
       if (keyword) {
+          const reg = new RegExp(keyword, 'i');
           conditions = {
               $and: [
                   { $or: [{ state: state }] },
@@ -341,9 +341,9 @@ exports.getArticleListAdmin = (req, res) => {
                   }
               })
               .populate([
-                { path: 'tag', },
-                { path: 'category', },
-            ])
+                  { path: 'tags', },
+                  { path: 'category', },
+              ])
       }
   });
 };

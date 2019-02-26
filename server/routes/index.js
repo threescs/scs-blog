@@ -19,6 +19,8 @@ module.exports = app => {
 
   app.get('/getLinkList', link.getLinkList);
   app.post('/addLink', link.addLink);
+  app.post('/updateLink', link.updateLink);
+	app.post('/delLink', link.delLink);
 
 	app.get('/getTagList', tag.getTagList);
   app.post('/addTag', tag.addTag);

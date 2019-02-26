@@ -94,3 +94,35 @@ exports.getLinkList = (req, res) => {
 			responseClient(res);
 		});
 };
+
+exports.updateLink = (req, res) => {
+	const { state, id } = req.body;
+	Link.update(
+		{ _id: id },
+		{
+			state,
+		},
+	)
+		.then(result => {
+			responseClient(res, 200, 0, '操作成功', result);
+		})
+		.catch(err => {
+			console.error(err);
+			responseClient(res);
+		});
+};
+exports.delLink = (req, res) => {
+	let { id } = req.body;
+	Link.deleteMany({ _id: id })
+		.then(result => {
+			if (result.n === 1) {
+				responseClient(res, 200, 0, '删除成功!');
+			} else {
+				responseClient(res, 200, 1, '标签不存在');
+			}
+		})
+		.catch(err => {
+			console.error(err);
+			responseClient(res);
+		});
+};

@@ -73,7 +73,7 @@ const artcleSchema = new mongoose.Schema({
 
   // 文章标签
   tags: [{
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Tag',
     required: true
   }],

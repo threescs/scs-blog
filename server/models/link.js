@@ -9,7 +9,7 @@ const autoIncrement = require('mongoose-auto-increment');
 //  自增ID插件配置
 linkSchema.plugin(autoIncrement.plugin, {
   model: 'Link',
-  fieId: 'id',
+  field: 'id',
   startAt: 1,
   incrementBy: 1
 });

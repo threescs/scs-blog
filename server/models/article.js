@@ -8,9 +8,9 @@
 //  自增ID插件配置
 articleSchema.plugin(autoIncrement.plugin, {
   model: 'Article',
-  fieId: 'id',
+  field: 'id',
   startAt: 1,
-  incrementBy: 1
+  incrementBy: 1,
 });
 
 // 文章模型

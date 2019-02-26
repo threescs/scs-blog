@@ -1,4 +1,4 @@
-import { mongoose } from "../core/mongodb";
+const { mongoose } = require('../core/mongodb');
 
 /**
  * Tag 标签表结构
