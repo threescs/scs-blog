@@ -6,6 +6,7 @@ import { Layout, BackTop } from 'antd';
 import SliderRight from '../slider/Slider';
 import Nav from '../nav/Nav';
 import { isMobileOrPc } from '../../util/util';
+import gonganLogo from '../../assets/gonganbeian.png';
 
 const { Content, Footer, Sider } = Layout;
 
@@ -43,7 +44,10 @@ export default class Layouts extends Component {
                   </Content>
                   <Footer style={{ textAlign: 'center', background: '#fff' }}>
 
-                    ©2019 一个Web开发者 Created by Scs
+                    ©2019 一个Web开发者 Created by Scs | &nbsp;
+                      <a target="_blank" href="http://www.miitbeian.gov.cn/"  rel="noopener noreferrer">
+                      <img style={{ width: '20px' }} src={gonganLogo} /> 
+                      冀ICP备19004783号</a>
                   </Footer>
               </Layout>
               <BackTop />
