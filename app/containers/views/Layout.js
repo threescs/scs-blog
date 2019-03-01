@@ -44,9 +44,11 @@ export default class Layouts extends Component {
                   </Content>
                   <Footer style={{ textAlign: 'center', background: '#fff' }}>
 
+
                     ©2019 一个Web开发者 Created by Scs | &nbsp;
                       <a target="_blank" href="http://www.miitbeian.gov.cn/" rel="noopener noreferrer">
                           <img style={{ width: '20px' }} src={gonganLogo} />
+
                       冀ICP备19004783号
                       </a>
                   </Footer>

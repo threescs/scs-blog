@@ -245,22 +245,6 @@ exports.getArticleDetail = (req, res) => {
         ])
 }
 }
-// 删除文章
-exports.delArticle = (req, res) => {
-  let { id } = req.body;
-  Article.deleteMany({ _id: id })
-      .then(result => {
-          if (result.n === 1) {
-              responseClient(res, 200, 0, '删除成功!');
-          } else {
-              responseClient(res, 200, 1, '文章不存在');
-          }
-      })
-      .catch(err => {
-          console.error('err :', err);
-          responseClient(res);
-      });
-};
 
 // 后台文章列表
 exports.getArticleListAdmin = (req, res) => {

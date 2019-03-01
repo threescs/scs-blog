@@ -97,15 +97,18 @@ class SliderRight extends Component {
                 <div className="title">个人介绍</div>
                 <div className="content">
 
+
                 自律的人生,看似艰辛,其实自由的很。
                     {' '}
                     <br />
                     {' '}
 
+
 这里会不定时的分享相关技术博客,同时记录我的点滴。
                     {' '}
                     <br />
                     {' '}
+
 
 Wonderful Life !
                 </div>
