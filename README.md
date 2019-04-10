@@ -9,5 +9,6 @@
 
 ## 技术栈
 react
+redux
 node
 express
